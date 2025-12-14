@@ -1,0 +1,2484 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LEGAL HUB - ثورة في الوصول إلى العدالة</title>
+    <style>
+      :root {
+        --primary-blue: #1a365d;
+        --dark-blue: #0f1a2d;
+        --gold: #d4af37;
+        --light-gold: #f7e98e;
+        --white: #ffffff;
+        --light-gray: #e2e8f0;
+        --text-dark: #1e293b;
+        --card-bg: rgba(255, 255, 255, 0.1);
+        --card-border: rgba(212, 175, 55, 0.4);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Tajawal", "Segoe UI", sans-serif;
+        background: var(--dark-blue);
+        color: var(--white);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      .presentation-container {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+      }
+
+      .slide {
+        display: none;
+        min-height: 100vh;
+        padding: 60px 40px;
+        position: relative;
+      }
+
+      .slide.active {
+        display: block;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      .slide-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--dark-blue) 0%,
+          var(--primary-blue) 100%
+        );
+        z-index: -1;
+      }
+
+      .slide-content {
+        position: relative;
+        z-index: 10;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding-bottom: 120px;
+      }
+
+      /* ========== السلايد 1: البداية الشخصية ========== */
+      .story-section {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .profile-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+
+      .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 4px solid var(--gold);
+        background: linear-gradient(
+          135deg,
+          var(--gold) 0%,
+          var(--light-gold) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+      }
+
+      .profile-text {
+        text-align: right;
+        max-width: 600px;
+      }
+
+      .profile-name {
+        font-size: 2.5rem;
+        color: var(--gold);
+        margin-bottom: 10px;
+      }
+
+      .profile-title {
+        font-size: 1.4rem;
+        color: var(--light-gray);
+        margin-bottom: 20px;
+      }
+
+      .story-quote {
+        font-size: 1.8rem;
+        font-style: italic;
+        color: var(--light-gold);
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+        position: relative;
+        padding: 0 40px;
+      }
+
+      .story-quote::before,
+      .story-quote::after {
+        content: '"';
+        font-size: 4rem;
+        color: var(--gold);
+        position: absolute;
+        opacity: 0.5;
+      }
+
+      .story-quote::before {
+        top: -20px;
+        right: 0;
+      }
+
+      .story-quote::after {
+        bottom: -40px;
+        left: 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .logo-icon {
+        font-size: 4rem;
+        filter: drop-shadow(0 0 20px var(--gold));
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .main-title {
+        font-size: 4.5rem;
+        font-weight: 900;
+        background: linear-gradient(
+          135deg,
+          var(--gold) 0%,
+          var(--light-gold) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .tagline {
+        font-size: 1.5rem;
+        color: var(--light-gold);
+        opacity: 0.9;
+      }
+
+      /* ========== السلايد 2: المشكلة ========== */
+      .problem-section {
+        margin-bottom: 60px;
+      }
+
+      .problem-title {
+        font-size: 3rem;
+        color: var(--gold);
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      .problem-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--card-border);
+        border-radius: 20px;
+        padding: 30px;
+        transition: all 0.3s ease;
+      }
+
+      .problem-card:hover {
+        transform: translateY(-10px);
+        border-color: #ff6b6b;
+        box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2);
+      }
+
+      .problem-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .problem-card h3 {
+        font-size: 1.8rem;
+        color: #ff6b6b;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .problem-features {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .problem-feature {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 0;
+      }
+
+      .problem-dot {
+        width: 8px;
+        height: 8px;
+        background: #ff6b6b;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .pain-stats {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        background: rgba(255, 107, 107, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 107, 107, 0.3);
+        border-radius: 20px;
+        padding: 40px;
+        margin-top: 30px;
+      }
+
+      .pain-stat {
+        text-align: center;
+      }
+
+      .pain-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #ff6b6b;
+        margin-bottom: 10px;
+      }
+
+      .pain-label {
+        font-size: 1.1rem;
+        color: var(--light-gray);
+      }
+
+      /* ========== السلايد 3: الحل ========== */
+      .solution-title {
+        font-size: 3rem;
+        color: var(--gold);
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .solution-intro {
+        text-align: center;
+        font-size: 1.5rem;
+        color: var(--light-gray);
+        margin-bottom: 50px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .solution-highlight {
+        color: var(--gold);
+        font-weight: bold;
+      }
+
+      .solution-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      .solution-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--card-border);
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .solution-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--gold);
+        box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+      }
+
+      .solution-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .solution-card h3 {
+        font-size: 1.8rem;
+        color: var(--gold);
+        margin-bottom: 15px;
+      }
+
+      .solution-card p {
+        color: var(--light-gray);
+        line-height: 1.6;
+      }
+
+      /* ========== السلايد 4: عرض التطبيق المتحرك ========== */
+      .demo-title {
+        font-size: 3rem;
+        color: var(--gold);
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .slideshow-container {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 2px solid var(--card-border);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      /* تأثير Flip Card */
+      .flip-card {
+        width: 100%;
+        height: 400px;
+        perspective: 1000px;
+        margin-bottom: 30px;
+      }
+
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-style: preserve-3d;
+      }
+
+      .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .flip-card-front {
+        background: linear-gradient(
+          135deg,
+          var(--dark-blue) 0%,
+          var(--primary-blue) 100%
+        );
+        border: 3px solid var(--gold);
+      }
+
+      .flip-card-back {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue) 0%,
+          var(--dark-blue) 100%
+        );
+        border: 3px solid var(--light-gold);
+        transform: rotateY(180deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .flip-image {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease;
+      }
+
+      .flip-image:hover {
+        transform: scale(1.05);
+      }
+
+      .image-info {
+        text-align: center;
+        color: var(--white);
+        padding: 30px;
+      }
+
+      .image-info h3 {
+        font-size: 2rem;
+        color: var(--gold);
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .image-info p {
+        font-size: 1.3rem;
+        color: var(--light-gray);
+        line-height: 1.6;
+      }
+
+      /* عناصر التحكم */
+      .slideshow-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .control-btn {
+        background: var(--gold);
+        color: var(--dark-blue);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+      }
+
+      .control-btn:hover {
+        background: var(--light-gold);
+        transform: scale(1.1) translateY(-2px);
+        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+      }
+
+      .flip-btn {
+        background: var(--primary-blue);
+        color: var(--light-gold);
+      }
+
+      .flip-btn:hover {
+        background: var(--light-gold);
+        color: var(--dark-blue);
+      }
+
+      .slide-counter {
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 1.3rem;
+        min-width: 80px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 10px 20px;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+      }
+
+      /* الصور المصغرة */
+      .thumbnail-container {
+        overflow-x: auto;
+        padding: 10px 0;
+      }
+
+      .thumbnails {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        padding: 10px;
+      }
+
+      .thumbnail {
+        width: 80px;
+        height: 60px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        opacity: 0.6;
+      }
+
+      .thumbnail:hover {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+
+      .thumbnail.active {
+        border: 3px solid var(--gold);
+        opacity: 1;
+        transform: scale(1.15);
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+      }
+
+      .thumbnail img {
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+        object-fit: cover;
+      }
+
+      .auto-play-control {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .play-pause-btn {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 2px solid var(--gold);
+        color: var(--light-gold);
+        padding: 12px 25px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Tajawal", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .play-pause-btn:hover {
+        background: var(--gold);
+        color: var(--dark-blue);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+      }
+
+      /* ========== السلايد 5: الرؤية ========== */
+      .vision-title {
+        font-size: 3rem;
+        color: var(--gold);
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .vision-content {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .vision-main {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 2px solid var(--gold);
+        border-radius: 20px;
+        padding: 40px;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .vision-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+      }
+
+      .vision-text h3 {
+        font-size: 2.2rem;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+
+      .vision-text p {
+        font-size: 1.3rem;
+        color: var(--light-gray);
+        line-height: 1.8;
+      }
+
+      .impact-stats {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+      }
+
+      .impact-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--card-border);
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        min-width: 200px;
+        transition: all 0.3s ease;
+      }
+
+      .impact-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--gold);
+        box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+      }
+
+      .impact-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .impact-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--gold);
+        margin-bottom: 10px;
+      }
+
+      .impact-label {
+        font-size: 1.1rem;
+        color: var(--light-gray);
+      }
+
+      .cta-section {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .cta-button {
+        background: var(--gold);
+        color: var(--dark-blue);
+        border: none;
+        padding: 15px 40px;
+        border-radius: 30px;
+        font-family: "Tajawal", sans-serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background: var(--light-gold);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+      }
+
+      /* ========== التنقل ========== */
+      .navigation {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 50px;
+        padding: 15px 30px;
+        z-index: 1000;
+      }
+
+      .nav-btn {
+        background: var(--gold);
+        color: var(--dark-blue);
+        border: none;
+        padding: 12px 25px;
+        border-radius: 25px;
+        font-family: "Tajawal", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .nav-btn:hover {
+        background: var(--light-gold);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+      }
+
+      .slide-indicator {
+        color: var(--light-gray);
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+
+      .current-slide {
+        color: var(--gold);
+        font-weight: 800;
+      }
+
+      /* الأنيميشن */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes flipIn {
+        from {
+          opacity: 0;
+          transform: rotateY(-90deg) scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: rotateY(0) scale(1);
+        }
+      }
+
+      .slideshow-container {
+        animation: slideIn 1s ease-out;
+      }
+
+      .flip-card-inner {
+        animation: flipIn 0.8s ease-out;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .slide {
+          padding: 40px 20px;
+        }
+
+        .slide-content {
+          padding-bottom: 100px;
+        }
+
+        .navigation {
+          bottom: 20px;
+          padding: 12px 20px;
+          gap: 20px;
+        }
+
+        .nav-btn {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+
+        .profile-container {
+          flex-direction: column;
+        }
+
+        .problem-grid,
+        .solution-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .impact-stats,
+        .pain-stats {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .slideshow-container {
+          margin: 0 10px;
+          padding: 20px;
+        }
+
+        .demo-title {
+          font-size: 2.2rem;
+        }
+
+        .flip-card {
+          height: 300px;
+        }
+
+        .control-btn {
+          width: 45px;
+          height: 45px;
+          font-size: 1.5rem;
+        }
+
+        .image-info h3 {
+          font-size: 1.5rem;
+        }
+
+        .image-info p {
+          font-size: 1.1rem;
+        }
+
+        .thumbnail {
+          width: 60px;
+          height: 45px;
+        }
+
+        .main-title {
+          font-size: 3rem;
+        }
+
+        .story-quote {
+          font-size: 1.4rem;
+          padding: 0 20px;
+        }
+
+        /* ========== قسم القيمة المضافة ========== */
+        .value-proposition {
+          margin-bottom: 60px;
+        }
+
+        .value-title {
+          font-size: 2.5rem;
+          color: var(--gold);
+          text-align: center;
+          margin-bottom: 40px;
+          font-weight: 700;
+        }
+
+        .value-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 25px;
+          margin-bottom: 40px;
+        }
+
+        .value-card {
+          background: var(--card-bg);
+          backdrop-filter: blur(20px);
+          border: 1px solid var(--card-border);
+          border-radius: 20px;
+          padding: 30px;
+          text-align: center;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .value-card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(
+            135deg,
+            var(--gold) 0%,
+            var(--light-gold) 100%
+          );
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+          transform: translateY(-10px);
+          border-color: var(--gold);
+          box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .value-card:hover::before {
+          transform: scaleX(1);
+        }
+
+        .value-icon {
+          font-size: 3.5rem;
+          margin-bottom: 20px;
+          filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+        }
+
+        .value-card h4 {
+          font-size: 1.6rem;
+          color: var(--gold);
+          margin-bottom: 20px;
+          font-weight: 600;
+        }
+
+        .value-features {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .value-features li {
+          color: var(--light-gray);
+          padding: 8px 0;
+          font-size: 1.1rem;
+          position: relative;
+          padding-right: 20px;
+        }
+
+        .value-features li::before {
+          content: "✓";
+          position: absolute;
+          right: 0;
+          color: var(--gold);
+          font-weight: bold;
+          font-size: 1.2rem;
+        }
+
+        /* Responsive لقسم القيمة المضافة */
+        @media (max-width: 768px) {
+          .value-title {
+            font-size: 2rem;
+          }
+
+          .value-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+
+          .value-card {
+            padding: 25px 20px;
+          }
+
+          .value-icon {
+            font-size: 3rem;
+          }
+
+          .value-card h4 {
+            font-size: 1.4rem;
+          }
+
+          .value-features li {
+            font-size: 1rem;
+          }
+        }
+      }
+      /* ========== قسم القيمة المضافة ========== */
+      .value-proposition {
+        margin-bottom: 60px;
+      }
+
+      .value-title {
+        font-size: 2.5rem;
+        color: var(--gold);
+        text-align: center;
+        margin-bottom: 40px;
+        font-weight: 700;
+      }
+
+      .value-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+      }
+
+      .value-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--card-border);
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .value-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          135deg,
+          var(--gold) 0%,
+          var(--light-gold) 100%
+        );
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .value-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--gold);
+        box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+      }
+
+      .value-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .value-icon {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+      }
+
+      .value-card h4 {
+        font-size: 1.6rem;
+        color: var(--gold);
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .value-features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .value-features li {
+        color: var(--light-gray);
+        padding: 8px 0;
+        font-size: 1.1rem;
+        position: relative;
+        padding-right: 20px;
+      }
+
+      .value-features li::before {
+        content: "✓";
+        position: absolute;
+        right: 0;
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      /* Responsive لقسم القيمة المضافة */
+      @media (max-width: 768px) {
+        .value-title {
+          font-size: 2rem;
+        }
+
+        .value-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .value-card {
+          padding: 25px 20px;
+        }
+
+        .value-icon {
+          font-size: 3rem;
+        }
+
+        .value-card h4 {
+          font-size: 1.4rem;
+        }
+
+        .value-features li {
+          font-size: 1rem;
+        }
+      }
+
+      /* ========== السلايد 5: القوة التقنية ========== */
+      .tech-architecture {
+        margin-bottom: 60px;
+      }
+
+      .architecture-section {
+        margin-bottom: 50px;
+      }
+
+      .architecture-title {
+        font-size: 2.2rem;
+        color: var(--gold);
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .architecture-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+      }
+
+      .arch-layer {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--card-border);
+        border-radius: 15px;
+        padding: 25px;
+        transition: all 0.3s ease;
+      }
+
+      .arch-layer:hover {
+        transform: translateY(-5px);
+        border-color: var(--gold);
+        box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+      }
+
+      .arch-layer h4 {
+        font-size: 1.4rem;
+        color: var(--gold);
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+
+      .arch-layer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .arch-layer li {
+        color: var(--light-gray);
+        padding: 8px 0;
+        font-size: 1rem;
+        position: relative;
+        padding-right: 20px;
+      }
+
+      .arch-layer li::before {
+        content: "•";
+        position: absolute;
+        right: 0;
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      /* قدرات الذكاء الاصطناعي */
+      .ai-capabilities {
+        margin-bottom: 50px;
+      }
+
+      .capabilities-title {
+        font-size: 2.2rem;
+        color: var(--gold);
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .capabilities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .capability-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--card-border);
+        border-radius: 15px;
+        padding: 25px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .capability-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--gold);
+        box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+      }
+
+      .capability-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+      }
+
+      .capability-card h4 {
+        font-size: 1.3rem;
+        color: var(--gold);
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .capability-card p {
+        color: var(--light-gray);
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      /* المنصة الأكاديمية */
+      .academic-platform {
+        margin-bottom: 50px;
+      }
+
+      .academic-title {
+        font-size: 2.2rem;
+        color: var(--gold);
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .academic-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .academic-features {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .academic-feature {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--card-border);
+        border-radius: 15px;
+        padding: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .academic-feature:hover {
+        transform: translateX(10px);
+        border-color: var(--gold);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        flex-shrink: 0;
+      }
+
+      .feature-text h4 {
+        font-size: 1.3rem;
+        color: var(--gold);
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+
+      .feature-text p {
+        color: var(--light-gray);
+        font-size: 1rem;
+      }
+
+      .platform-screenshot {
+        text-align: center;
+      }
+
+      .platform-image {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 10px;
+        border: 2px solid var(--card-border);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .platform-image:hover {
+        transform: scale(1.05);
+        border-color: var(--gold);
+      }
+
+      /* نقاط القوة */
+      .strengths-section {
+        margin-bottom: 50px;
+      }
+
+      .strengths-title {
+        font-size: 2.2rem;
+        color: var(--gold);
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .strengths-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .strength-item {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--card-border);
+        border-radius: 15px;
+        padding: 25px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .strength-item:hover {
+        transform: translateY(-5px);
+        border-color: var(--gold);
+        box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+      }
+
+      .strength-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      .strength-item h4 {
+        font-size: 1.3rem;
+        color: var(--gold);
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .strength-item p {
+        color: var(--light-gray);
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      /* Responsive للسلايد 5 */
+      @media (max-width: 768px) {
+        .architecture-grid,
+        .capabilities-grid,
+        .strengths-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .academic-content {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .academic-feature {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .architecture-title,
+        .capabilities-title,
+        .academic-title,
+        .strengths-title {
+          font-size: 1.8rem;
+        }
+
+        .impact-stats {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+
+      /* تأثيرات الكتابة النصية */
+      .typing-story {
+        max-width: 800px;
+        margin: 0 auto 40px;
+        text-align: center;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .story-part {
+        margin-bottom: 30px;
+      }
+
+      .typing-text {
+        font-size: 1.8rem;
+        color: var(--light-gold);
+        line-height: 1.8;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-right: 2px solid var(--gold);
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      .typing-cursor {
+        animation: blink 1s infinite;
+      }
+
+      .continue-prompt {
+        margin-top: 30px;
+      }
+
+      .blink {
+        animation: blink 1.5s infinite;
+        color: var(--gold);
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .highlight-number {
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 2rem;
+        background: rgba(212, 175, 55, 0.2);
+        padding: 2px 8px;
+        border-radius: 5px;
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="presentation-container">
+      <!-- السلايد 1: البداية الشخصية -->
+      <!-- السلايد 1: البداية المؤثرة -->
+      <div class="slide active" id="slide1">
+        <div class="slide-background"></div>
+        <div class="slide-content">
+          <div class="story-section">
+            <div class="profile-container">
+              <div class="profile-image">👨‍⚖️</div>
+              <div class="profile-text">
+                <h1 class="profile-name">هشام</h1>
+                <p class="profile-title">
+                  محامي استئناف | ١٥ سنة في العمل القانوني والإداري
+                </p>
+              </div>
+            </div>
+
+            <!-- النص مع تأثير الكتابة -->
+            <div class="typing-story">
+              <div class="story-part" id="storyPart1">
+                <p class="typing-text" id="text1"></p>
+              </div>
+              <div class="story-part" id="storyPart2" style="display: none">
+                <p class="typing-text" id="text2"></p>
+              </div>
+              <div class="story-part" id="storyPart3" style="display: none">
+                <p class="typing-text" id="text3"></p>
+              </div>
+              <div
+                class="continue-prompt"
+                id="continuePrompt"
+                style="display: none"
+              >
+                <span class="blink">▼ اضغط للمتابعة</span>
+              </div>
+            </div>
+
+            <div class="logo">
+              <div class="logo-icon">⚖️</div>
+              <h1 class="main-title">LEGAL HUB</h1>
+            </div>
+            <p class="tagline">لحظة الطوارئ تُصنع فيها العدالة</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- السلايد 2: المشكلة -->
+      <div class="slide" id="slide2">
+        <div class="slide-background"></div>
+        <div class="slide-content">
+          <h2 class="problem-title">
+            المشكلة: نظام قانوني يعاني من البطء والتعقيد
+          </h2>
+
+          <div class="problem-grid">
+            <div class="problem-card">
+              <div class="problem-icon">😥</div>
+              <h3>للمواطن</h3>
+              <div class="problem-features">
+                <div class="problem-feature">
+                  <span class="problem-dot"></span>
+                  <span>صعوبة الوصول لمحامي مناسب بسرعة</span>
+                </div>
+                <div class="problem-feature">
+                  <span class="problem-dot"></span>
+                  <span>ارتفاع التكاليف القانونية</span>
+                </div>
+                <div class="problem-feature">
+                  <span class="problem-dot"></span>
+                  <span>غياب الشفافية والثقة</span>
+                </div>
+                <div class="problem-feature">
+                  <span class="problem-dot"></span>
+                  <span>تعقيد الإجراءات والإجراءات البيروقراطية</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="problem-card">
+              <div class="problem-icon">😫</div>
+              <h3>للمحامي</h3>
+              <div class="problem-features">
+                <div class="problem-feature">
+                  <span class="problem-dot"></span>
+                  <span>ضياع الوقت في مهام روتينية</span>
+                </div>
+                <div class="problem-feature">
+                  <span class="problem-dot"></span>
+                  <span>صعوبة توسيع قاعدة العملاء</span>
+                </div>
+                <div class="problem-feature">
+                  <span class="problem-dot"></span>
+                  <span>عدم كفاءة أدوات العمل التقليدية</span>
+                </div>
+                <div class="problem-feature">
+                  <span class="problem-dot"></span>
+                  <span>التحديات في إدارة المكاتب القانونية</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="problem-card">
+              <div class="problem-icon">😔</div>
+              <h3>للمنظومة القضائية</h3>
+              <div class="problem-features">
+                <div class="problem-feature">
+                  <span class="problem-dot"></span>
+                  <span>بطء الإجراءات وتضخم القضايا</span>
+                </div>
+                <div class="problem-feature">
+                  <span class="problem-dot"></span>
+                  <span>ضعف أدوات التحليل والرقمنة</span>
+                </div>
+                <div class="problem-feature">
+                  <span class="problem-dot"></span>
+                  <span>التحديات في إصدار القرارات المستنيرة</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pain-stats">
+            <div class="pain-stat">
+              <div class="pain-number">70٪</div>
+              <div class="pain-label">من القضايا تستغرق أكثر من سنة</div>
+            </div>
+            <div class="pain-stat">
+              <div class="pain-number">65٪</div>
+              <div class="pain-label">من الناس يتجنبون اللجوء للقضاء</div>
+            </div>
+            <div class="pain-stat">
+              <div class="pain-number">60٪</div>
+              <div class="pain-label">
+                من وقت المحامي يضيع في إجراءات روتينية
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- السلايد 3: الحل -->
+      <div class="slide" id="slide3">
+        <div class="slide-background"></div>
+        <div class="slide-content">
+          <h2 class="solution-title">الحل: Legal Hub</h2>
+
+          <p class="solution-intro">
+            منصة <span class="solution-highlight">متكاملة</span> و<span
+              class="solution-highlight"
+              >ذكية</span
+            >
+            تعيد تعريف الوصول إلى الخدمات القانونية، تجمع بين
+            <span class="solution-highlight">الخبرة البشرية</span> و<span
+              class="solution-highlight"
+              >قوة الذكاء الاصطناعي</span
+            >
+          </p>
+
+          <!-- قسم القيمة المضافة الجديد -->
+          <div class="value-proposition">
+            <h3 class="value-title">القيمة المضافة لجميع الأطراف</h3>
+            <div class="value-grid">
+              <div class="value-card">
+                <div class="value-icon">👤</div>
+                <h4>للمواطن</h4>
+                <ul class="value-features">
+                  <li>أمان قانوني مضمون</li>
+                  <li>وصول سريع للخدمات</li>
+                  <li>توفير في التكاليف</li>
+                </ul>
+              </div>
+
+              <div class="value-card">
+                <div class="value-icon">👨‍⚖️</div>
+                <h4>للمحامي</h4>
+                <ul class="value-features">
+                  <li>مصدر دخل إضافي</li>
+                  <li>أدوات ذكية متقدمة</li>
+                  <li>شبكة علاقات واسعة</li>
+                </ul>
+              </div>
+
+              <div class="value-card">
+                <div class="value-icon">⚖️</div>
+                <h4>للقاضي</h4>
+                <ul class="value-features">
+                  <li>سرعة ودقة في المراجعة</li>
+                  <li>دعم اتخاذ القرار</li>
+                  <li>تقليل الأعباء الإدارية</li>
+                </ul>
+              </div>
+
+              <div class="value-card">
+                <div class="value-icon">🌍</div>
+                <h4>للمجتمع</h4>
+                <ul class="value-features">
+                  <li>عدالة أسرع وأكثر كفاءة</li>
+                  <li>شفافية أكبر</li>
+                  <li>رفع كفاءة المنظومة القانونية</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="solution-grid">
+            <div class="solution-card">
+              <div class="solution-icon">🌐</div>
+              <h3>منصة ربط ذكية</h3>
+              <p>
+                ربط المواطنين بالمحامين المناسبين عبر خريطة تفاعلية ونظام توصيات
+                ذكي
+              </p>
+            </div>
+
+            <div class="solution-card">
+              <div class="solution-icon">🤖</div>
+              <h3>مساعد قانوني بالذكاء الاصطناعي</h3>
+              <p>روبوت ذكي لتقديم استشارات قانونية أولية وتحليل المستندات</p>
+            </div>
+
+            <div class="solution-card">
+              <div class="solution-icon">📊</div>
+              <h3>أدوات إدارة متكاملة</h3>
+              <p>نظام إدارة قضايا سحابي ومحرر نصوص قانوني وتقويم ذكي</p>
+            </div>
+
+            <div class="solution-card">
+              <div class="solution-icon">👥</div>
+              <h3>مجتمع قانوني تفاعلي</h3>
+              <p>منتدى للمحامين ونظام إنابة قضائية وتبادل الخبرات</p>
+            </div>
+
+            <div class="solution-card">
+              <div class="solution-icon">⚡</div>
+              <h3>استشارات فورية</h3>
+              <p>جلسات فيديو مباشرة مع محامين متخصصين في الوقت الفعلي</p>
+            </div>
+
+            <div class="solution-card">
+              <div class="solution-icon">🔮</div>
+              <h3>تحليلات تنبؤية</h3>
+              <p>
+                تحليل السوابق القضائية والتنبؤ بمسارات القضايا باستخدام الذكاء
+                الاصطناعي
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- السلايد 4: عرض التطبيق -->
+      <div class="slide" id="slide4">
+        <div class="slide-background"></div>
+        <div class="slide-content">
+          <h2 class="demo-title">التطبيق الفعلي: Legal Hub في العمل</h2>
+
+          <div class="slideshow-container">
+            <div class="flip-card" id="flipCard">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img
+                    src=""
+                    alt="اسكرين شوت"
+                    class="flip-image"
+                    id="currentImage"
+                  />
+                </div>
+                <div class="flip-card-back">
+                  <div class="image-info">
+                    <h3 id="imageTitle">عنوان الصورة</h3>
+                    <p id="imageDescription">وصف الصورة سوف يظهر هنا</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slideshow-controls">
+              <button class="control-btn prev-slide">‹</button>
+              <div class="slide-counter">
+                <span class="current-slide-number">1</span> /
+                <span class="total-slides-number">0</span>
+              </div>
+              <button class="control-btn next-slide">›</button>
+              <button class="control-btn flip-btn" id="flipBtn">🔄</button>
+            </div>
+
+            <div class="thumbnail-container">
+              <div class="thumbnails" id="thumbnails">
+                <!-- الصور المصغرة ستضاف هنا -->
+              </div>
+            </div>
+          </div>
+
+          <div class="auto-play-control">
+            <button class="play-pause-btn" id="playPauseBtn">
+              ⏸️ إيقاف التشغيل التلقائي
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- السلايد 5: الرؤية -->
+      <!-- السلايد 5: القوة التقنية والرؤية المستقبلية -->
+      <div class="slide" id="slide5">
+        <div class="slide-background"></div>
+        <div class="slide-content">
+          <h2 class="vision-title">القوة التقنية: نظام متكامل بذكاء متقدم</h2>
+
+          <div class="tech-architecture">
+            <!-- قسم البنية التقنية -->
+            <div class="architecture-section">
+              <h3 class="architecture-title">🏗️ البنية التقنية المتكاملة</h3>
+              <div class="architecture-grid">
+                <div class="arch-layer">
+                  <h4>🖥️ الواجهة الأمامية (Frontend)</h4>
+                  <ul>
+                    <li>Next.js مع TypeScript لتجربة مستخدم فائقة</li>
+                    <li>أنظمة داشبورد متخصصة لكل دور</li>
+                    <li>محاكاة قضائية تفاعلية ثلاثية الأبعاد</li>
+                    <li>محرر نصوص قانوني ذكي</li>
+                  </ul>
+                </div>
+
+                <div class="arch-layer">
+                  <h4>⚙️ الخلفية الأساسية (Backend)</h4>
+                  <ul>
+                    <li>Python FastAPI لأداء عالي</li>
+                    <li>نظام مصادقة متقدم متعدد الأدوار</li>
+                    <li>إدارة قواعد بيانات علائقية ومتجهية</li>
+                    <li>تكامل Zoom والأنظمة الخارجية</li>
+                  </ul>
+                </div>
+
+                <div class="arch-layer">
+                  <h4>🧠 نظام الذكاء الاصطناعي (AI Microservice)</h4>
+                  <ul>
+                    <li>RAG System متقدم للاسترجاع الدلالي</li>
+                    <li>Multi-LLM Orchestration لإدارة نماذج متعددة</li>
+                    <li>معالجة PDF متقدمة وتقسيم ذكي</li>
+                    <li>تضمين هجين وذاكرة تخزين فعالة</li>
+                  </ul>
+                </div>
+
+                <div class="arch-layer">
+                  <h4>🤖 نظام الأتمتة (Automation Engine)</h4>
+                  <ul>
+                    <li>محرك Workflows مع 40+ عقدة تنفيذية</li>
+                    <li>أتمتة المهام القانونية المتكررة</li>
+                    <li>نظام مراقبة وتنبيهات ذكي</li>
+                    <li>قوالب جاهزة لأتمتة القضايا</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- قسم قدرات الذكاء الاصطناعي -->
+            <div class="ai-capabilities">
+              <h3 class="capabilities-title">
+                🚀 قدرات الذكاء الاصطناعي المتقدمة
+              </h3>
+              <div class="capabilities-grid">
+                <div class="capability-card">
+                  <div class="capability-icon">🔍</div>
+                  <h4>التحليل والبحث المتقدم</h4>
+                  <p>
+                    بحث دلالي في 22 دولة عربية مع قاعدة بيانات شاملة للقوانين
+                    والسوابق القضائية
+                  </p>
+                </div>
+
+                <div class="capability-card">
+                  <div class="capability-icon">📝</div>
+                  <h4>التلخيص والرد الذكي</h4>
+                  <p>
+                    تلخيص المستندات القانونية المعقدة وتوليد ردود قانونية مدروسة
+                  </p>
+                </div>
+
+                <div class="capability-card">
+                  <div class="capability-icon">🎯</div>
+                  <h4>التنبؤ بالأحكام</h4>
+                  <p>
+                    تحليل السوابق القضائية والتنبؤ بمسارات القضايا بنسبة دقة
+                    عالية
+                  </p>
+                </div>
+
+                <div class="capability-card">
+                  <div class="capability-icon">⚖️</div>
+                  <h4>تحليل التعارض التشريعي</h4>
+                  <p>كشف التعارضات بين القوانين وتحديد الثغرات التشريعية</p>
+                </div>
+
+                <div class="capability-card">
+                  <div class="capability-icon">🌐</div>
+                  <h4>الترجمة القانونية الدقيقة</h4>
+                  <p>ترجمة المستندات القانونية مع الحفاظ على الدقة القانونية</p>
+                </div>
+
+                <div class="capability-card">
+                  <div class="capability-icon">📊</div>
+                  <h4>التحليلات التنبؤية</h4>
+                  <p>
+                    تحليل البيانات الكبيرة للتنبؤ بالاتجاهات القانونية
+                    والاجتماعية
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- قسم المنصة الأكاديمية -->
+            <div class="academic-platform">
+              <h3 class="academic-title">
+                🎓 المنصة الأكاديمية - محكمة افتراضية
+              </h3>
+              <div class="academic-content">
+                <div class="academic-features">
+                  <div class="academic-feature">
+                    <div class="feature-icon">🏛️</div>
+                    <div class="feature-text">
+                      <h4>محاكاة قضائية متقدمة</h4>
+                      <p>بيئة تعلم غامرة بمحاكم افتراضية ثلاثية الأبعاد</p>
+                    </div>
+                  </div>
+
+                  <div class="academic-feature">
+                    <div class="feature-icon">👨‍⚖️</div>
+                    <div class="feature-text">
+                      <h4>تعيين أدوار تفاعلي</h4>
+                      <p>الطلبة يلعبون أدوار القضاة، المحامين، الخبراء</p>
+                    </div>
+                  </div>
+
+                  <div class="academic-feature">
+                    <div class="feature-icon">📈</div>
+                    <div class="feature-text">
+                      <h4>نظام تحفيز وجوائز</h4>
+                      <p>تحفيز المشاركة من خلال نظام النقاط والإنجازات</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="platform-screenshot">
+                  <img
+                    src="assets/screenshots/منصة التعلم القانوني.PNG"
+                    alt="المنصة الأكاديمية"
+                    class="platform-image"
+                  />
+                  <p class="screenshot-caption">
+                    واجهة المنصة الأكاديمية التفاعلية
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- قسم نقاط القوة -->
+            <div class="strengths-section">
+              <h3 class="strengths-title">💪 نقاط القوة التقنية</h3>
+              <div class="strengths-grid">
+                <div class="strength-item">
+                  <div class="strength-icon">🔒</div>
+                  <h4>الأمان والحماية</h4>
+                  <p>
+                    نظام مصادقة متعدد الطبقات مع تشفير متقدم للبيانات الحساسة
+                  </p>
+                </div>
+
+                <div class="strength-item">
+                  <div class="strength-icon">⚡</div>
+                  <h4>الأداء العالي</h4>
+                  <p>بنية ميكروسيرفيس مع تخزين مؤقت متقدم لأداء فائق</p>
+                </div>
+
+                <div class="strength-item">
+                  <div class="strength-icon">🔄</div>
+                  <h4>القابلية للتطوير</h4>
+                  <p>تصميم مرن يسمح بالتوسع الأفقي والرأسي بسهولة</p>
+                </div>
+
+                <div class="strength-item">
+                  <div class="strength-icon">🌍</div>
+                  <h4>التغطية الشاملة</h4>
+                  <p>دعم 22 دولة عربية مع قاعدة بيانات قانونية شاملة</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vision-content">
+            <div class="vision-main">
+              <div class="vision-icon">🚀</div>
+              <div class="vision-text">
+                <h3>Legal Hub: أكثر من مجرد منصة...</h3>
+                <p>
+                  نظام متكامل يعيد تعريف العمل القانوني من خلال دمج الذكاء
+                  الاصطناعي المتقدم مع الخبرة البشرية، ليخلق منظومة قانونية
+                  ذكية، شفافة، وفعالة تخدم جميع أطراف العملية القانونية من
+                  المواطن إلى القاضي.
+                </p>
+              </div>
+            </div>
+
+            <div class="impact-stats">
+              <div class="impact-card">
+                <div class="impact-icon">🎯</div>
+                <div class="impact-number">المرحلة ١</div>
+                <div class="impact-label">المنصة الأساسية والاستشارات</div>
+              </div>
+              <div class="impact-card">
+                <div class="impact-icon">🚀</div>
+                <div class="impact-number">المرحلة ٢</div>
+                <div class="impact-label">الذكاء الاصطناعي المتقدم</div>
+              </div>
+              <div class="impact-card">
+                <div class="impact-icon">🔮</div>
+                <div class="impact-number">المرحلة ٣</div>
+                <div class="impact-label">التحليلات التنبؤية والأتمتة</div>
+              </div>
+              <div class="impact-card">
+                <div class="impact-icon">🌍</div>
+                <div class="impact-number">المرحلة ٤</div>
+                <div class="impact-label">
+                  التوسع الإقليمي والمنصة الأكاديمية
+                </div>
+              </div>
+            </div>
+
+            <div class="cta-section">
+              <button class="cta-button">
+                انضم إلى ثورة التحول الرقمي القانوني
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- شريط التنقل -->
+      <div class="navigation">
+        <button class="nav-btn prev-btn">← السابق</button>
+        <div class="slide-indicator">
+          <span class="current-slide">1</span> /
+          <span class="total-slides">5</span>
+        </div>
+        <button class="nav-btn next-btn">التالي →</button>
+      </div>
+    </div>
+
+    <script>
+      // JavaScript للتنقل بين السلايدات
+      document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".slide");
+        const prevBtn = document.querySelector(".prev-btn");
+        const nextBtn = document.querySelector(".next-btn");
+        const currentSlide = document.querySelector(".current-slide");
+        const totalSlides = document.querySelector(".total-slides");
+
+        let currentSlideIndex = 0;
+        totalSlides.textContent = slides.length;
+
+        function showSlide(index) {
+          slides.forEach((slide) => slide.classList.remove("active"));
+          slides[index].classList.add("active");
+          currentSlide.textContent = index + 1;
+          currentSlideIndex = index;
+        }
+
+        prevBtn.addEventListener("click", () => {
+          if (currentSlideIndex > 0) {
+            showSlide(currentSlideIndex - 1);
+          }
+        });
+
+        nextBtn.addEventListener("click", () => {
+          if (currentSlideIndex < slides.length - 1) {
+            showSlide(currentSlideIndex + 1);
+          }
+        });
+
+        // إضافة إمكانية التنقل بالسهمين
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight" || e.key === "Right") {
+            if (currentSlideIndex < slides.length - 1) {
+              showSlide(currentSlideIndex + 1);
+            }
+          } else if (e.key === "ArrowLeft" || e.key === "Left") {
+            if (currentSlideIndex > 0) {
+              showSlide(currentSlideIndex - 1);
+            }
+          }
+        });
+
+        // إظهار السلايد الأول عند التحميل
+        showSlide(0);
+      });
+
+      // نظام عرض الاسكرين شوتس المتحرك
+      document.addEventListener("DOMContentLoaded", function () {
+        const flipCard = document.getElementById("flipCard");
+        const currentImage = document.getElementById("currentImage");
+        const imageTitle = document.getElementById("imageTitle");
+        const imageDescription = document.getElementById("imageDescription");
+        const currentSlideNumber = document.querySelector(
+          ".current-slide-number"
+        );
+        const totalSlidesNumber = document.querySelector(
+          ".total-slides-number"
+        );
+        const thumbnailsContainer = document.getElementById("thumbnails");
+        const flipBtn = document.getElementById("flipBtn");
+        const playPauseBtn = document.getElementById("playPauseBtn");
+
+        // قائمة الاسكرين شوتس مع التعليقات
+        const screenshots = [
+          {
+            src: "assets/screenshots/الواجهة الرئيسية 1.PNG",
+            title: "الواجهة الرئيسية",
+            description:
+              "الصفحة الرئيسية مع خيارات سريعة للخدمات القانونية والوصول المباشر لجميع الميزات",
+          },
+
+          {
+            src: "assets/screenshots/الصفحة الرئيسية 5.PNG",
+            title: "الواجهة الرئيسية",
+            description:
+              "الصفحة الرئيسية مع خيارات سريعة للخدمات القانونية والوصول المباشر لجميع الميزات",
+          },
+
+          {
+            src: "assets/screenshots/صفحة المستخدم.PNG",
+            title: "صفحة المستخدم  ",
+            description: "       ",
+          },
+
+          {
+            src: "assets/screenshots/داشبورد المحام - القضايا.PNG",
+            title: "لوحة تحكم المحامي",
+            description:
+              "نظام متكامل لإدارة القضايا، المواعيد، العملاء، والمستندات القانونية",
+          },
+
+          {
+            src: "assets/screenshots/داشبورد المحام - طلبات الانابة.PNG",
+            title: "الانابة ",
+            description: "    ",
+          },
+
+          {
+            src: "assets/screenshots/داشبورد المحام - محرر النصوص.PNG",
+            title: "محرر النصوص ",
+            description: "    ",
+          },
+          {
+            src: "assets/screenshots/داشبورد طلبات الانابة المرسلة والمستقبلة.PNG",
+            title: "الانابة  ",
+            description: "    ",
+          },
+          {
+            src: "assets/screenshots/لوحة المستخدم - طلب طواريء.PNG",
+            title: "طواريء  ",
+            description: "    ",
+          },
+
+          {
+            src: "assets/screenshots/داشبورد المحام - الكاليندر  او الاجندة.PNG",
+            title: "الكاليندر ",
+            description: "    ",
+          },
+
+          {
+            src: "assets/screenshots/داشبورد المحام - المستشار روبوت.PNG",
+            title: "المستشار ",
+            description: "    ",
+          },
+
+          {
+            src: "assets/screenshots/داشبورد المحام - المناقشات.PNG",
+            title: "المناقشات ",
+            description: "    ",
+          },
+          {
+            src: "assets/screenshots/داشبورد المحام - طلبات الاستشارة-النشطة.PNG",
+            title: "الاستشارة ",
+            description: "    ",
+          },
+          {
+            src: "assets/screenshots/-2داشبورد المحام - المحكمة التفاعلية.PNG",
+            title: "المحكمة ",
+            description: "    ",
+          },
+          {
+            src: "assets/screenshots/داشبورد المحام - الاتمتة للمهام.PNG",
+            title: "الاتمتة ",
+            description: "    ",
+          },
+          {
+            src: "assets/screenshots/داشبورد المحام - الاعدادات-2.PNG",
+            title: "الاعدادات ",
+            description: "    ",
+          },
+
+          {
+            src: "assets/screenshots/الواجهة الرئيسية 3.PNG",
+            title: "الواجهة الرئيسية",
+            description:
+              "الصفحة الرئيسية مع خيارات سريعة للخدمات القانونية والوصول المباشر لجميع الميزات",
+          },
+          {
+            src: "assets/screenshots/صفحة الدخول.PNG",
+            title: "صفحة  الدخول ",
+            description: "       ",
+          },
+
+          {
+            src: "assets/screenshots/الصفحة الرئيسية 4.PNG",
+            title: "الواجهة الرئيسية",
+            description:
+              "الصفحة الرئيسية مع خيارات سريعة للخدمات القانونية والوصول المباشر لجميع الميزات",
+          },
+        ];
+
+        let currentSlide = 0;
+        let autoPlay = true;
+        let autoPlayInterval;
+
+        // إنشاء الصور المصغرة
+        function createThumbnails() {
+          screenshots.forEach((screenshot, index) => {
+            const thumbnail = document.createElement("div");
+            thumbnail.className = `thumbnail ${index === 0 ? "active" : ""}`;
+
+            const img = document.createElement("img");
+            img.src = screenshot.src;
+            img.alt = `صورة مصغرة ${index + 1}`;
+
+            thumbnail.appendChild(img);
+            thumbnail.addEventListener("click", () => {
+              stopAutoPlay();
+              goToSlide(index);
+              if (autoPlay) startAutoPlay();
+            });
+
+            thumbnailsContainer.appendChild(thumbnail);
+          });
+        }
+
+        // تحديث الشريحة الحالية
+        function updateSlide() {
+          const screenshot = screenshots[currentSlide];
+
+          // تأثير fade out ثم fade in
+          currentImage.style.opacity = "0";
+
+          setTimeout(() => {
+            currentImage.src = screenshot.src;
+            currentImage.alt = screenshot.title;
+            imageTitle.textContent = screenshot.title;
+            imageDescription.textContent = screenshot.description;
+            currentImage.style.opacity = "1";
+
+            // تحديث الصور المصغرة النشطة
+            document.querySelectorAll(".thumbnail").forEach((thumb, index) => {
+              thumb.classList.toggle("active", index === currentSlide);
+            });
+
+            currentSlideNumber.textContent = currentSlide + 1;
+            totalSlidesNumber.textContent = screenshots.length;
+
+            // إعادة تعيين تأثير flip
+            flipCard.classList.remove("flipped");
+          }, 300);
+        }
+
+        // الانتقال لشريحة محددة
+        function goToSlide(index) {
+          currentSlide = index;
+          updateSlide();
+        }
+
+        // الشريحة التالية
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % screenshots.length;
+          updateSlide();
+        }
+
+        // الشريحة السابقة
+        function prevSlide() {
+          currentSlide =
+            (currentSlide - 1 + screenshots.length) % screenshots.length;
+          updateSlide();
+        }
+
+        // قلب الصورة
+        function flipCardFunc() {
+          flipCard.classList.toggle("flipped");
+        }
+
+        // التشغيل التلقائي
+        function startAutoPlay() {
+          autoPlayInterval = setInterval(nextSlide, 5000); // تغيير كل 5 ثواني
+        }
+
+        function stopAutoPlay() {
+          clearInterval(autoPlayInterval);
+        }
+
+        function toggleAutoPlay() {
+          autoPlay = !autoPlay;
+          if (autoPlay) {
+            startAutoPlay();
+            playPauseBtn.textContent = "⏸️ إيقاف التشغيل التلقائي";
+          } else {
+            stopAutoPlay();
+            playPauseBtn.textContent = "▶️ تشغيل تلقائي";
+          }
+        }
+
+        // تهيئة النظام
+        function initSlideshow() {
+          createThumbnails();
+          updateSlide();
+          startAutoPlay();
+
+          // إضافة event listeners
+          document
+            .querySelector(".next-slide")
+            .addEventListener("click", () => {
+              stopAutoPlay();
+              nextSlide();
+              if (autoPlay) startAutoPlay();
+            });
+
+          document
+            .querySelector(".prev-slide")
+            .addEventListener("click", () => {
+              stopAutoPlay();
+              prevSlide();
+              if (autoPlay) startAutoPlay();
+            });
+
+          flipBtn.addEventListener("click", flipCardFunc);
+
+          // النقر على الصورة لقلبها
+          currentImage.addEventListener("click", flipCardFunc);
+
+          playPauseBtn.addEventListener("click", toggleAutoPlay);
+
+          // التنقل بالسهام
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowRight") {
+              stopAutoPlay();
+              nextSlide();
+              if (autoPlay) startAutoPlay();
+            } else if (e.key === "ArrowLeft") {
+              stopAutoPlay();
+              prevSlide();
+              if (autoPlay) startAutoPlay();
+            } else if (e.key === " " || e.key === "Spacebar") {
+              e.preventDefault();
+              toggleAutoPlay();
+            } else if (e.key === "f" || e.key === "F") {
+              flipCardFunc();
+            }
+          });
+        }
+
+        // بدء التشغيل بعد تحميل الصور
+        window.addEventListener("load", initSlideshow);
+      });
+    </script>
+
+    <script>
+      // النسخة البسيطة - تضاف في نهاية الـ body
+      document.addEventListener("DOMContentLoaded", function () {
+        const screenshots = [
+          "assets/screenshots/منصة التعلم القانوني.PNG",
+          "assets/screenshots/صفحة اختيار القضية.PNG",
+          "assets/screenshots/المحكمة الافتراضية.PNG",
+          "assets/screenshots/المحكمة التفاعلية-2.PNG",
+        ];
+
+        const captions = [
+          "واجهة المنصة الأكاديمية التفاعلية",
+          "لوحة تحكم الطالب في المنصة التعليمية",
+          "نظام المحاكاة القضائية المتقدم",
+          "أدوات المحاضر والإدارة التعليمية",
+        ];
+
+        const img = document.querySelector(".platform-image");
+        const caption = document.querySelector(".screenshot-caption");
+
+        if (img && caption) {
+          let currentIndex = 0;
+
+          function showNextImage() {
+            currentIndex = (currentIndex + 1) % screenshots.length;
+            img.style.opacity = "0";
+
+            setTimeout(() => {
+              img.src = screenshots[currentIndex];
+              img.alt = captions[currentIndex];
+              caption.textContent = captions[currentIndex];
+              img.style.opacity = "1";
+            }, 300);
+          }
+
+          // تبديل الصور كل 5 ثواني
+          setInterval(showNextImage, 5000);
+        }
+      });
+    </script>
+
+    <script>
+      // تأثير الكتابة النصي للسلايد الأول - النسخة المصححة
+      document.addEventListener("DOMContentLoaded", function () {
+        const storyTexts = [
+          "تخيل مواطناً أثناء قيادته لسيارته... حادثة مروعة نتج عنها وفاة أشخاص. مع تعالي أصوات الإسعاف والنجدة، وقبل أن تصل أيادي القانون، لا يوجد شيء أهم من وجود محامٍ يضبط الإطار الأول للقضية قبل أن تتخذ مساراً يصعب العدول عنه.",
+
+          "هل تعلم أن <span class='highlight-number'>٦٥٪</span> من الناس يتجنبون اللجوء للمحاكم؟ ليس لعدم الحق، بل لغياب الثقة وطول أمد التقاضي واختفاء الشفافية.",
+
+          "وتخيل أن أدوات المحامي ما هي إلا مجموعة ملفات PDF للإطلاع، وتطبيق ديسكتوب بسيط لتسجيل القضايا... بينما <span class='highlight-number'>٧٠٪</span> من القضايا لا تنتهي في العام الأول، والقاضي يحتاج شهوراً فقط لقراءة المذكرات ومراجعة المستندات قبل أن يبدأ في كتابة حيثيات الحكم.",
+        ];
+
+        let currentPart = 0;
+        let currentText = "";
+        let currentIndex = 0;
+        let typingSpeed = 30;
+        let isTyping = false;
+        let textElement = document.getElementById("text1"); // تعريف أولي
+
+        const continuePrompt = document.getElementById("continuePrompt");
+
+        function typeWriter() {
+          if (currentIndex < storyTexts[currentPart].length) {
+            isTyping = true;
+            currentText += storyTexts[currentPart].charAt(currentIndex);
+            textElement.innerHTML =
+              currentText + '<span class="typing-cursor">|</span>';
+            currentIndex++;
+            setTimeout(typeWriter, typingSpeed);
+          } else {
+            isTyping = false;
+            textElement.innerHTML = currentText;
+            showContinuePrompt();
+          }
+        }
+
+        function showContinuePrompt() {
+          if (currentPart < storyTexts.length - 1) {
+            continuePrompt.style.display = "block";
+          } else {
+            // الانتقال التلقائي بعد 3 ثواني من انتهاء النص الأخير
+            setTimeout(() => {
+              showNextSlide();
+            }, 3000);
+          }
+        }
+
+        function nextStoryPart() {
+          if (isTyping) return;
+
+          currentPart++;
+          if (currentPart < storyTexts.length) {
+            // إخفاء الجزء الحالي
+            document.getElementById(`storyPart${currentPart}`).style.display =
+              "none";
+
+            // إظهار الجزء الجديد
+            const nextPart = document.getElementById(
+              `storyPart${currentPart + 1}`
+            );
+            nextPart.style.display = "block";
+
+            // إعادة تعيين المتغيرات
+            currentText = "";
+            currentIndex = 0;
+            textElement = document.getElementById(`text${currentPart + 1}`);
+
+            // بدء الكتابة
+            typeWriter();
+
+            // إخفاء prompt المتابعة
+            continuePrompt.style.display = "none";
+          } else {
+            showNextSlide();
+          }
+        }
+
+        function showNextSlide() {
+          // الانتقال للسلايد التالي
+          const slides = document.querySelectorAll(".slide");
+          const currentSlide = document.querySelector(".slide.active");
+          const nextSlide = slides[1]; // السلايد الثاني
+
+          if (currentSlide && nextSlide) {
+            currentSlide.classList.remove("active");
+            nextSlide.classList.add("active");
+          }
+        }
+
+        // بدء الكتابة
+        typeWriter();
+
+        // النقر للمتابعة
+        if (continuePrompt) {
+          continuePrompt.addEventListener("click", nextStoryPart);
+        }
+
+        // الضغط على أي مفتاح للمتابعة
+        document.addEventListener("keydown", function (e) {
+          if (e.key === " " || e.key === "Enter" || e.key === "ArrowDown") {
+            e.preventDefault();
+            if (!isTyping) {
+              nextStoryPart();
+            }
+          }
+        });
+
+        // النقر في أي مكان للمتابعة (باستثناء العناصر التفاعلية)
+        document.addEventListener("click", function (e) {
+          if (
+            !isTyping &&
+            !e.target.closest(".continue-prompt") &&
+            !e.target.closest(".navigation") &&
+            !e.target.closest(".profile-container")
+          ) {
+            nextStoryPart();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
