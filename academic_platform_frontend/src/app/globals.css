@@ -1,0 +1,105 @@
+/* جميع الـ @import يجب أن تكون في الأعلى */
+@import "tailwindcss";
+
+
+/* الآن بقية القواعد */
+body {
+  font-family: var(--font-scheherazade), serif;
+}
+
+.font-scheherazade {
+  font-family: var(--font-scheherazade), serif;
+}
+
+.font-amiri {
+  font-family: var(--font-amiri), serif;
+}
+
+:root {
+  /* الألوان القانونية المهنية */
+  --legal-gold: #D4AF37;
+  --justice-blue: #1E3A8A;
+  --court-purple: #4C1D95;
+  --parchment: #FEF3C7;
+  --ink: #1F2937;
+  --success-green: #10B981;
+  
+  /* تأثيرات الإضاءة */
+  --gold-glow: 0 0 20px rgba(212, 175, 55, 0.5);
+  --blue-glow: 0 0 30px rgba(30, 58, 138, 0.3);
+}
+
+.legal-portal {
+  background: linear-gradient(135deg, var(--justice-blue), var(--court-purple));
+  box-shadow: var(--gold-glow), var(--blue-glow);
+  border: 2px solid var(--legal-gold);
+}
+
+/* تحسينات التدرجات */
+.bg-legal-gold { background-color: var(--legal-gold); }
+.text-legal-gold { color: var(--legal-gold); }
+.border-legal-gold { border-color: var(--legal-gold); }
+
+.bg-justice-blue { background-color: var(--justice-blue); }
+.text-justice-blue { color: var(--justice-blue); }
+
+/* تأثيرات الظل المحسنة */
+.shadow-legal-glow {
+  box-shadow: 
+    0 0 20px rgba(212, 175, 55, 0.3),
+    0 0 40px rgba(212, 175, 55, 0.2),
+    0 0 60px rgba(212, 175, 55, 0.1);
+}
+
+.shadow-justice-glow {
+  box-shadow: 
+    0 0 30px rgba(30, 58, 138, 0.4),
+    0 0 60px rgba(30, 58, 138, 0.2);
+}
+
+/* شريط التمرير المخصص */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--legal-gold) rgba(255, 255, 255, 0.1);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--legal-gold), #B8860B);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #B8860B, #996515);
+}
+
+/* تأثيرات النص */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--legal-gold), #FDE68A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* تحسينات للحركات */
+.backdrop-blur-2xl {
+  backdrop-filter: blur(40px);
+}
+
+/* تأثيرات اللمس */
+@media (hover: hover) {
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    transition: transform 0.3s ease;
+  }
+}
