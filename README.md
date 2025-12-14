@@ -27,9 +27,9 @@ Phase Two: This phase involves building the vector database and legal knowledge 
 Phase Three (and final): The big data phase, which provides legal data analysis, forecasting, legislative conflict resolution, an interactive library, and an interactive legal learning platform.
 
 مراحل المشروع
-المرحلة الاولي : الاساسية وفيها الخدمات التفاعلية بين الاشخاص العاديين والمحامين من خلال الطواريء والاستشارات وداشبورد المحام وفيها نظام ادارة القضايا والكاليندر ومحرر النصوص وبه المكتبة القانونية ومندى المناقشات ونظام الانابة
-المرحلة الثانية : وفيها يكون تم بناء الفيكتور داتابيز وقاعدة المعرفة القانونية وفيها يتم تقديم خدمات الاستشارات القانونية الذكية للافراد وخدمات الترجمة القانونية والتحليل والكتابة بالذكاء الصناعي للمحامين والقضاة بالاضافة الى عمليات الاوتوميشن
-المرحلة الثالثة والاخيرة : مرحلة الداتا الكبيرة وفيها يتم تقديم خدمات تحليل البيانات القانونية والتنبؤ والتعارض التشريعي والمكمة التفاعلية ومنصة التعلم القانوني التفاعلي
+المرحلة الاولي : الاساسية وفيها الخدمات التفاعلية بين الاشخاص العاديين والمحامين من خلال الطواريء والاستشارات وداشبورد المحام وفيها نظام ادارة القضايا والكاليندر ومحرر النصوص وبه المكتبة القانونية ومنتدى المناقشات ونظام الانابة...
+المرحلة الثانية : وفيها يكون تم بناء الفيكتور داتابيز وقاعدة المعرفة القانونية وفيها يتم تقديم خدمات الاستشارات القانونية الذكية للافراد وخدمات الترجمة القانونية والتحليل والكتابة بالذكاء الصناعي للمحامين والقضاة بالاضافة الى عمليات الاوتوميشن...
+المرحلة الثالثة والاخيرة : مرحلة الداتا الكبيرة وفيها يتم تقديم خدمات تحليل البيانات القانونية والتنبؤ والتعارض التشريعي والمحكمة التفاعلية ومنصة التعلم القانوني التفاعلي
 
 ## 🌟 Key Features
 
@@ -105,7 +105,7 @@ Phase Three (and final): The big data phase, which provides legal data analysis,
 - واجهة مستخدم كاملة باللغة العربية
 - تحليل النصوص القانونية العربية
 
-  البنية التقنية Technical Infrastructure
+                                                                                                                                  البنية التقنية Technical Infrastructure
 
 ### Backend
 
@@ -168,60 +168,6 @@ npm install
 backend .env
 # قم بتحرير .env وإضافة المفاتيح المطلوبة
 
-# Application Settings
-PROJECT_NAME=Legal Hub
-VERSION=1.0.0
-DEBUG=True
-
-# قاعدة البيانات
-DATABASE_URL=postgresql://user:password@localhost/legal_db
-REDIS_URL=redis://localhost:6379
-NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
-
-AI_ADVISOR_BASE_URL=http://127.0.0.1:8001/ai-advisor/v1
-
-
-# الأمان
-SECRET_KEY=your-secret-key-here
-JWT_ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-
-# الذكاء الاصطناعي
-OPENAI_API_KEY=your-openai-api-key
-ANTHROPIC_API_KEY=your-anthropic-api-key
-EMBEDDING_MODEL=text-embedding-ada-002
-GOOGLE_API_KEY = your api_key here
-AWS_ACCESS_KEY_ID = your api_key here
-ANTHROPIC_API_KEY = your api_key here
-
-# نماذج يمكن اضافتها للكود
-
-PERPLEXITY_API_KEY = your_perplexity_api_key_here
-
-COHERE_API_KEY = your_together_api_key_here
-
-TOGETHER_API_KEY = your_together_api_key_here
-# البريد الإلكتروني
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your-email@gmail.com
-SMTP_PASS=your-app-password
-
-
-ZOOM_CLIENT_ID= #your ID
-ZOOM_CLIENT_SECRET= #your secret
-ZOOM_ACCOUNT_ID=your_account_id_here  # لبعض أنواع الحسابات
-
-fronrend .env.local # قم بتحرير .env.local وإضافة المفاتيح المطلوبة
-
-# رابط الـ Backend API
-NEXT_PUBLIC_API_URL=http://localhost:8000
-BACKEND_URL=http://localhost:8000
-JWT_SECRET=your_super_secret_key
-# إعدادات التطوير
-NODE_ENV=development
-
-```
 
 how to start
 
@@ -249,6 +195,14 @@ uvicorn app.ai_advisor.main:app --reload --port 8001
 cd academic_platform  
 .\venv\Scripts\activate  
 uvicorn main:app --reload --port 8002
+
+# - Frontend: http://localhost:3000
+
+# - Backend: http://localhost:8000
+
+# - AI Advisor: http://localhost:8001
+
+# - Academic Platform: http://localhost:8002
 
 cd academic_platform_frontend  
 npm run dev
