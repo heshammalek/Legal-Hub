@@ -1,0 +1,27 @@
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.loading-text {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* أنماط إضافية للاستجابة */
+@media (max-width: 768px) {
+  .loading-text {
+    font-size: 14px;
+  }
+}
