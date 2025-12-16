@@ -113,7 +113,6 @@ Phase Three (and final): The big data phase, which provides legal data analysis,
 - **PostgreSQL + pgvector**: قاعدة بيانات مع دعم التضمين
 - **Redis**: التخزين المؤقت وإدارة الجلسات
 - **Celery**: المهام الخلفية المجدولة
-- **Docker**: حاويات للتشغيل الموحد
 
 ### Frontend
 
