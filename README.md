@@ -142,7 +142,7 @@ Phase Three (and final): The big data phase, which provides legal data analysis,
 
 ```bash
 # 1. استنساخ المستودع
-git clone https://github.com/heshammalek/legal_hub.git
+git clone https://github.com/heshammalek/legal-hub.git
 cd legal_hub
 
 # 2. إعداد Backend
